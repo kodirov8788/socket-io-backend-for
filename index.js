@@ -2,7 +2,7 @@ import { Server } from "socket.io";
 
 const io = new Server({
   cors: {
-    origin: "https://socket-io-frontend.vercel.app/",
+    origin: "https://socket-io-frontend.vercel.app",
   },
 });
 
@@ -30,7 +30,7 @@ io.on("connection", (socket) => {
     addNewUser(username, socket.id);
   });
 
-  io.emit("server", "Hello world again");
+  // io.emit("server", "Hello world again");
   socket.on("sendNotification", ({ senderName, receiverName, type }) => {
     const receiver = getUser(receiverName);
     io.to(receiver.socketId).emit("getNotification", {
@@ -52,4 +52,4 @@ io.on("connection", (socket) => {
   });
 });
 
-io.listen("https://socket-io-for.herokuapp.com/");
+io.listen(5000);
