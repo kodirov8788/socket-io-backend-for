@@ -30,7 +30,7 @@ io.on("connection", (socket) => {
     addNewUser(username, socket.id);
   });
 
-  // io.emit("server", "Hello world again");
+  io.emit("server", "Hello world again");
   socket.on("sendNotification", ({ senderName, receiverName, type }) => {
     const receiver = getUser(receiverName);
     io.to(receiver.socketId).emit("getNotification", {
