@@ -2,7 +2,7 @@ import { Server } from "socket.io";
 
 const io = new Server({
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://socket-io-frontend.vercel.app/",
   },
 });
 
@@ -52,4 +52,4 @@ io.on("connection", (socket) => {
   });
 });
 
-io.listen(5000);
+io.listen("https://socket-io-for.herokuapp.com/");
